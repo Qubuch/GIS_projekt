@@ -20,7 +20,6 @@ def kosaraju_strongly_connected_components(graph):
         components_counter += 1
         for dfs_visited_vertex in depth_first_search(transposed_graph, vertex, visited):
             components[dfs_visited_vertex] = components_counter
-            visited[dfs_visited_vertex] = True
     return components
 
 
