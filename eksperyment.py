@@ -12,7 +12,6 @@ def __init__(self, nodes_start, nodes_end, edges_start, edges_end, nodes_step, e
     self.edges_step = edges_step
     self.algorithm = algorithm
     self.loop = loop
-    self.connectors = set()
 
 class Graph(object):
 
