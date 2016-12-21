@@ -1,6 +1,6 @@
 import unittest
 
-from naiwny import naive_strongly_connected_components, dfs_scc, dfs_back
+from naiwny import naive_strongly_connected_components
 
 def path(n):
     graph = [[i] for i in range(1, n+1)]
