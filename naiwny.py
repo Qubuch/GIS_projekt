@@ -1,18 +1,17 @@
-from depth_first_search import depth_first_search
+from depth_first_search import depth_first_search, postorder_depth_first_search
 
 def naive_strongly_connected_components(graph):
     vertices_number = len(graph)
     components = [0] * vertices_number
     visited = [False] * vertices_number
-    stack = []
     vertices_number_i = 0
     for node in range(vertices_number):
         if not visited[node]:
-            for dfs_visited_vertex in depth_first_search(graph, node, visited):
-                vertices_number_i += 1
-                stack.append(dfs_visited_vertex)
+            for dfs_visited_vertex in depth_first_search(graph, node + 1, visited):
                 visited[dfs_visited_vertex] = True
-                components[dfs_visited_vertex] = vertices_number_i
+                for dfs_visited_vertex_next in depth_first_search(graph, dfs_visited_vertex - 1, visited):
+                    vertices_number_i += 1
+                    components[dfs_visited_vertex_next] = vertices_number_i
     del graph[:]
     return components
 
